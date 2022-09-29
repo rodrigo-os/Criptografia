@@ -4,10 +4,10 @@ import time
 import sys
 
 def redirect():
-    for remaining in range(5, 0, -1):
+    for remaining in range(10, 0, -1):
         print('\033[?25l', end="")
         sys.stdout.write("\r")
-        sys.stdout.write(f"Redirecionando em: {remaining}")
+        sys.stdout.write("Redirecionando em:{:2d}".format(remaining))
         sys.stdout.flush()
         time.sleep(1)
     print('\033[?25h', end="")
