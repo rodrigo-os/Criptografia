@@ -1,6 +1,16 @@
 import platform
 import os
 import time
+import sys
+
+def redirect():
+    for remaining in range(5, 0, -1):
+        print('\033[?25l', end="")
+        sys.stdout.write("\r")
+        sys.stdout.write(f"Redirecionando em: {remaining}")
+        sys.stdout.flush()
+        time.sleep(1)
+    print('\033[?25h', end="")
 
 def converter(opt):
     alfabeto = 'abcdefghijklmnopqrstuvwxyz'
@@ -51,12 +61,14 @@ def select():
                 clear()
                 mensagem = converter(opt)
                 print(f'mensagem encriptografada: {mensagem}')
-                time.sleep(6)
+                print("\n")
+                redirect()
             elif opt == 2:
                 clear()
                 mensagem = converter(opt)
                 print(f'mensagem descriptografada: {mensagem}')
-                time.sleep(6)
+                print("\n")
+                redirect()
             elif opt == 0:
                 clear()
                 print('Saindo!')
