@@ -43,7 +43,8 @@ def convert(opt):
     return mensagem_manipulada
             
 def clear():
-    so = platform.system
+    so = platform.system()
+    so = str(so).lower()
     if so == 'windows':
         os.system('CLS')
     else:
